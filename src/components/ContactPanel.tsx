@@ -4,9 +4,56 @@ import { Input } from "./ui/input";
 
 const ContactPanel = () => {
   return (
-    <div className="bg-[#8B2942] text-white py-12">
+    <div className="bg-gray-800 text-white py-12">
       <div className="container mx-auto px-4">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+          {/* West Region */}
+          <div className="space-y-4 text-center">
+            <h3 className="font-playfair text-xl font-semibold">WEST REGION</h3>
+            <div className="space-y-2">
+              <div className="flex items-center justify-center space-x-2">
+                <Phone className="h-5 w-5" />
+                <p>(+213) 555-123-456</p>
+              </div>
+              <div className="flex items-center justify-center space-x-2">
+                <Mail className="h-5 w-5" />
+                <p>west@casanoor.com</p>
+              </div>
+            </div>
+          </div>
+          
+          {/* Center Region */}
+          <div className="space-y-4 text-center">
+            <h3 className="font-playfair text-xl font-semibold">CENTER REGION</h3>
+            <div className="space-y-2">
+              <div className="flex items-center justify-center space-x-2">
+                <Phone className="h-5 w-5" />
+                <p>(+213) 555-789-012</p>
+              </div>
+              <div className="flex items-center justify-center space-x-2">
+                <Mail className="h-5 w-5" />
+                <p>center@casanoor.com</p>
+              </div>
+            </div>
+          </div>
+          
+          {/* East Region */}
+          <div className="space-y-4 text-center">
+            <h3 className="font-playfair text-xl font-semibold">EAST REGION</h3>
+            <div className="space-y-2">
+              <div className="flex items-center justify-center space-x-2">
+                <Phone className="h-5 w-5" />
+                <p>(+213) 555-345-678</p>
+              </div>
+              <div className="flex items-center justify-center space-x-2">
+                <Mail className="h-5 w-5" />
+                <p>east@casanoor.com</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 border-t pt-8 border-gray-700">
           {/* Contact Info */}
           <div className="space-y-4">
             <h3 className="font-playfair text-xl font-semibold">CONTACT INFO</h3>
@@ -67,7 +114,7 @@ const ContactPanel = () => {
                 placeholder="Enter your email" 
                 className="bg-white/10 border-white/20 text-white placeholder:text-gray-300"
               />
-              <button className="bg-white text-[#8B2942] px-4 py-2 rounded hover:bg-gray-100 transition-colors">
+              <button className="bg-white text-gray-800 px-4 py-2 rounded hover:bg-gray-100 transition-colors">
                 Subscribe
               </button>
             </div>
