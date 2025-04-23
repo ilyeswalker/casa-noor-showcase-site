@@ -1,6 +1,6 @@
-
 import { useState } from "react";
 import { useParams } from "react-router-dom";
+import ContactPanel from "../components/ContactPanel";
 
 const ProductDetail = () => {
   const { id } = useParams();
@@ -71,6 +71,8 @@ const ProductDetail = () => {
           </div>
         </div>
       </div>
+      {/* Contact Panel */}
+      <ContactPanel />
     </div>
   );
 };

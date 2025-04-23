@@ -1,6 +1,6 @@
-
 import { Link } from "react-router-dom";
-import { Cable, Plug, EthernetPort, HardDrive } from "lucide-react";
+import { Cable, Plug, EthernetPort } from "lucide-react";
+import ContactPanel from "../components/ContactPanel";
 
 const featuredProducts = [
   {
@@ -33,17 +33,12 @@ const Index = () => {
       <section 
         className="h-screen flex items-center justify-center bg-cover bg-center bg-no-repeat"
         style={{ 
-          backgroundImage: "url('https://images.unsplash.com/photo-1518770660439-4636190af475')",
+          backgroundImage: "url('https://images.unsplash.com/photo-1531297484001-80022131f5a1')",
           backgroundBlendMode: "overlay",
           backgroundColor: "rgba(0, 0, 0, 0.7)"
         }}
       >
         <div className="text-center space-y-8 animate-fadeIn">
-          <img 
-            src="/lovable-uploads/663badf9-6ce8-4d62-b609-66238221977c.png" 
-            alt="CasaNoor Logo" 
-            className="h-32 mx-auto mb-4"
-          />
           <p className="text-xl md:text-2xl text-white max-w-2xl mx-auto px-4">
             Your trusted source for premium electrical equipment and cables
           </p>
@@ -79,6 +74,9 @@ const Index = () => {
           </div>
         </div>
       </section>
+
+      {/* Contact Panel */}
+      <ContactPanel />
     </div>
   );
 };

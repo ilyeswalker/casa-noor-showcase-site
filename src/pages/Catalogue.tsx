@@ -1,7 +1,7 @@
-
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Slider } from "@/components/ui/slider";
+import ContactPanel from "../components/ContactPanel";
 
 const mockProducts = Array.from({ length: 9 }, (_, i) => ({
   id: i + 1,
@@ -77,6 +77,9 @@ const Catalogue = () => {
           </main>
         </div>
       </div>
+
+      {/* Contact Panel */}
+      <ContactPanel />
     </div>
   );
 };

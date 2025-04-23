@@ -1,3 +1,4 @@
+import ContactPanel from "../components/ContactPanel";
 
 const Contact = () => {
   return (
@@ -71,6 +72,9 @@ const Contact = () => {
           </div>
         </div>
       </div>
+
+      {/* Contact Panel */}
+      <ContactPanel />
     </div>
   );
 };
