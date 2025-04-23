@@ -1,24 +1,58 @@
 
 import { Link } from "react-router-dom";
+import { Cable, Plug, EthernetPort, HardDrive } from "lucide-react";
+
+const featuredProducts = [
+  {
+    id: 1,
+    name: "Industrial Power Cable",
+    price: 299,
+    icon: Cable,
+    description: "Heavy-duty power cable for industrial applications"
+  },
+  {
+    id: 2,
+    name: "Network Cable Bundle",
+    price: 149,
+    icon: EthernetPort,
+    description: "Cat6 ethernet cables for high-speed networking"
+  },
+  {
+    id: 3,
+    name: "Smart Power Strip",
+    price: 199,
+    icon: Plug,
+    description: "Surge-protected power strip with smart controls"
+  }
+];
 
 const Index = () => {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="h-screen flex items-center justify-center bg-gradient-to-r from-gray-50 to-gray-100">
+      <section 
+        className="h-screen flex items-center justify-center bg-cover bg-center bg-no-repeat"
+        style={{ 
+          backgroundImage: "url('https://images.unsplash.com/photo-1518770660439-4636190af475')",
+          backgroundBlendMode: "overlay",
+          backgroundColor: "rgba(0, 0, 0, 0.7)"
+        }}
+      >
         <div className="text-center space-y-8 animate-fadeIn">
-          <h1 className="font-playfair text-6xl md:text-8xl font-bold text-casanoor-red">
-            CasaNoor
-          </h1>
-          <p className="text-xl md:text-2xl text-gray-600 max-w-2xl mx-auto px-4">
-            Discover our exquisite collection of luxury home furnishings and decor
+          <img 
+            src="/lovable-uploads/663badf9-6ce8-4d62-b609-66238221977c.png" 
+            alt="CasaNoor Logo" 
+            className="h-32 mx-auto mb-4"
+          />
+          <p className="text-xl md:text-2xl text-white max-w-2xl mx-auto px-4">
+            Your trusted source for premium electrical equipment and cables
           </p>
           <div>
             <Link
               to="/catalogue"
               className="inline-block bg-casanoor-blue text-white px-8 py-3 rounded-md hover:bg-blue-700 transition-colors"
             >
-              Explore Collection
+              Explore Our Products
             </Link>
           </div>
         </div>
@@ -29,16 +63,19 @@ const Index = () => {
         <div className="container mx-auto px-4">
           <h2 className="font-playfair text-4xl text-center mb-12">Featured Products</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {/* Sample featured products - to be replaced with dynamic data */}
-            {[1, 2, 3].map((item) => (
-              <div key={item} className="group cursor-pointer">
-                <div className="aspect-square bg-gray-100 mb-4 overflow-hidden">
-                  <div className="w-full h-full bg-gradient-to-br from-gray-200 to-gray-300 group-hover:scale-105 transition-transform duration-300" />
+            {featuredProducts.map((product) => {
+              const IconComponent = product.icon;
+              return (
+                <div key={product.id} className="group cursor-pointer bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition-shadow">
+                  <div className="mb-4 flex justify-center">
+                    <IconComponent className="w-12 h-12 text-casanoor-blue" />
+                  </div>
+                  <h3 className="font-playfair text-xl mb-2">{product.name}</h3>
+                  <p className="text-gray-600 mb-4">{product.description}</p>
+                  <p className="text-casanoor-red font-semibold">Starting from ${product.price}</p>
                 </div>
-                <h3 className="font-playfair text-xl mb-2">Luxury Item {item}</h3>
-                <p className="text-gray-600">Starting from $999</p>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </section>

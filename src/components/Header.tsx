@@ -4,9 +4,13 @@ import { Link } from "react-router-dom";
 const Header = () => {
   return (
     <header className="fixed top-0 left-0 right-0 bg-white shadow-sm z-50">
-      <nav className="container mx-auto px-4 py-4 flex items-center justify-between">
-        <Link to="/" className="font-playfair text-2xl text-casanoor-red font-bold">
-          CasaNoor
+      <nav className="container mx-auto px-4 py-2 flex items-center justify-between">
+        <Link to="/" className="flex items-center space-x-2">
+          <img 
+            src="/lovable-uploads/663badf9-6ce8-4d62-b609-66238221977c.png" 
+            alt="CasaNoor Logo" 
+            className="h-16"
+          />
         </Link>
         <div className="hidden md:flex space-x-8">
           <Link to="/" className="text-gray-700 hover:text-casanoor-blue transition-colors">
