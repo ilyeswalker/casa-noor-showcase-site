@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Menu, Globe, User } from "lucide-react";
@@ -49,14 +48,14 @@ const Header = () => {
             <img 
               src="/lovable-uploads/663badf9-6ce8-4d62-b609-66238221977c.png" 
               alt="Logo" 
-              className="h-16"
+              className="h-14"
             />
-            <span className="mx-3 text-gray-800 font-medium">|</span>
+            <span className="mx-2 text-gray-800 font-medium text-sm">|</span>
             <div className="ml-1">
-              <span className="text-black font-bold text-sm sm:text-base leading-tight block">
+              <span className="text-black font-bold text-xs sm:text-sm leading-tight block">
                 Fabrication et distribution
               </span>
-              <span className="text-black font-bold text-sm sm:text-base leading-tight block">
+              <span className="text-black font-bold text-xs sm:text-sm leading-tight block">
                 câble et accessoires électriques
               </span>
             </div>

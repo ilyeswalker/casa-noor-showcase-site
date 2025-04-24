@@ -75,7 +75,7 @@ const Index = () => {
               <span className="text-casanoor-blue">Casa </span>
               <span className="text-casanoor-red">Noor</span>
             </h1>
-            <div className="text-white text-xl mt-1">Fabrication et distribution<br />câble et accessoires électriques</div>
+            <div className="text-white text-xl mt-1">{translations.trusted_source}</div>
           </div>
           <div>
             <Link
@@ -106,7 +106,9 @@ const Index = () => {
                   </div>
                   <h3 className="font-playfair text-xl mb-2">{product.name}</h3>
                   <p className="text-gray-600 mb-4">{product.description}</p>
-                  <p className="text-casanoor-red font-semibold">Starting from ${product.price}</p>
+                  <p className="text-casanoor-red font-semibold">
+                    {translations.starting_from} ${product.price}
+                  </p>
                 </div>
               );
             })}

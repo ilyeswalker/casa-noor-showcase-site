@@ -1,4 +1,3 @@
-
 import React, { createContext, useContext, useState, ReactNode } from 'react';
 
 export type LanguageCode = 'EN' | 'FR' | 'AR';
@@ -109,6 +108,46 @@ const translations: TranslationMap = {
     EN: "REGIONAL CONTACTS",
     FR: "CONTACTS RÉGIONAUX",
     AR: "جهات الاتصال الإقليمية"
+  },
+  starting_from: {
+    EN: "Starting from",
+    FR: "À partir de",
+    AR: "يبدأ من"
+  },
+  learn_more: {
+    EN: "Learn More",
+    FR: "En Savoir Plus",
+    AR: "اقرأ المزيد"
+  },
+  ready_explore: {
+    EN: "Ready to explore our products?",
+    FR: "Prêt à explorer nos produits?",
+    AR: "هل أنت مستعد لاستكشاف منتجاتنا؟"
+  },
+  browse_catalogue: {
+    EN: "Browse our complete catalogue of cables and wires to find the perfect solution for your electrical needs.",
+    FR: "Parcourez notre catalogue complet de câbles pour trouver la solution parfaite à vos besoins électriques.",
+    AR: "تصفح كتالوج الكابلات لدينا للعثور على الحل المثالي لاحتياجاتك الكهربائية"
+  },
+  view_catalogue: {
+    EN: "View Catalogue",
+    FR: "Voir le Catalogue",
+    AR: "عرض الكتالوج"
+  },
+  about_company: {
+    EN: "About Cablette Casa",
+    FR: "À Propos de Cablette Casa",
+    AR: "حول كابلات كازا"
+  },
+  company_desc: {
+    EN: "Founded in 2005, Cablette Casa has grown to become one of the leading manufacturers of electrical cables and wires in the region.",
+    FR: "Fondée en 2005, Cablette Casa est devenue l'un des principaux fabricants de câbles électriques de la région.",
+    AR: "تأسست كابلات كازا في عام 2005، ونمت لتصبح واحدة من الشركات الرائدة في تصنيع الكابلات والأسلاك الكهربائية في المنطقة"
+  },
+  quality_desc: {
+    EN: "We take pride in our craftsmanship and our commitment to providing electrical solutions that power homes, businesses, and industries across the country.",
+    FR: "Nous sommes fiers de notre savoir-faire et de notre engagement à fournir des solutions électriques qui alimentent les maisons, les entreprises et les industries à travers le pays.",
+    AR: "نحن نفخر بحرفيتنا والتزامنا بتقديم حلول كهربائية تغذي المنازل والشركات والصناعات في جميع أنحاء البلاد"
   }
 };
 
