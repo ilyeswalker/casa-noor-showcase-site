@@ -10,7 +10,7 @@ const featuredProducts = [
     price: 29,
     icon: Cable,
     image:
-      "C:UsersASUSDocumentsGitHubcasa-noor-showcase-siteImagespexels-pixabay-159027.jpg",
+      "Images/pixels-pixabay-159027.jpg"
     description: "Standard 2-conductor cable with 0.75mm² cross-section",
   },
   {
