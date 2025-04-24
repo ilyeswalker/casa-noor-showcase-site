@@ -9,8 +9,7 @@ const featuredProducts = [
     name: "Cable 2 x 0.75",
     price: 29,
     icon: Cable,
-    image:
-      "Images/pixels-pixabay-159027.jpg"
+    image: "https://images.unsplash.com/photo-1558346490-a72e53ae2d4f",
     description: "Standard 2-conductor cable with 0.75mm² cross-section",
   },
   {
