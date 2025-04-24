@@ -5,14 +5,15 @@ import { Menu, Globe, User } from "lucide-react";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
 import { useLanguage } from "../context/LanguageContext";
+import { LanguageCode } from "../context/LanguageContext"; // Import the LanguageCode type
 
 const Header = () => {
   const { language, setLanguage, translations } = useLanguage();
 
   const languages = [
-    { code: "EN", name: "English" },
-    { code: "FR", name: "Français" },
-    { code: "AR", name: "العربية" }
+    { code: "EN" as LanguageCode, name: "English" },
+    { code: "FR" as LanguageCode, name: "Français" },
+    { code: "AR" as LanguageCode, name: "العربية" }
   ];
 
   return (
