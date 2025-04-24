@@ -4,9 +4,10 @@ import { Link } from "react-router-dom";
 import { Menu, Globe, User } from "lucide-react";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
+import { useLanguage } from "../context/LanguageContext";
 
 const Header = () => {
-  const [currentLanguage, setCurrentLanguage] = useState("EN");
+  const { language, setLanguage, translations } = useLanguage();
 
   const languages = [
     { code: "EN", name: "English" },
@@ -15,7 +16,7 @@ const Header = () => {
   ];
 
   return (
-    <header className="fixed top-0 left-0 right-0 bg-white shadow-sm z-50">
+    <header className="fixed top-0 left-0 right-0 bg-white shadow-md z-50 rounded-b-lg">
       <nav className="container mx-auto px-4 py-2 flex items-center justify-between">
         <div className="flex items-center">
           <Sheet>
@@ -25,16 +26,20 @@ const Header = () => {
             <SheetContent side="left" className="w-[300px] sm:w-[300px]">
               <div className="flex flex-col space-y-4 py-4">
                 <Link to="/" className="text-lg font-medium px-4 py-2 rounded-md hover:bg-gray-100">
-                  Home
+                  {translations.home}
                 </Link>
                 <Link to="/catalogue" className="text-lg font-medium px-4 py-2 rounded-md hover:bg-gray-100">
-                  Catalogue
+                  {translations.catalogue}
                 </Link>
                 <Link to="/about" className="text-lg font-medium px-4 py-2 rounded-md hover:bg-gray-100">
-                  About
+                  {translations.about}
                 </Link>
                 <Link to="/contact" className="text-lg font-medium px-4 py-2 rounded-md hover:bg-gray-100">
-                  Contact
+                  {translations.contact}
+                </Link>
+                {/* Admin access */}
+                <Link to="/admin" className="text-lg font-medium px-4 py-2 rounded-md hover:bg-gray-100">
+                  Admin
                 </Link>
               </div>
             </SheetContent>
@@ -46,7 +51,7 @@ const Header = () => {
               className="h-16"
             />
             <div className="ml-2">
-              <span className="text-xl font-bold">
+              <span className="text-2xl font-bold font-merriweather italic">
                 <span className="text-casanoor-blue">Casa </span>
                 <span className="text-casanoor-red">Noor</span>
               </span>
@@ -57,16 +62,16 @@ const Header = () => {
         
         <div className="hidden md:flex space-x-8">
           <Link to="/" className="text-gray-700 hover:text-casanoor-red transition-colors">
-            Home
+            {translations.home}
           </Link>
           <Link to="/catalogue" className="text-gray-700 hover:text-casanoor-red transition-colors">
-            Catalogue
+            {translations.catalogue}
           </Link>
           <Link to="/about" className="text-gray-700 hover:text-casanoor-red transition-colors">
-            About
+            {translations.about}
           </Link>
           <Link to="/contact" className="text-gray-700 hover:text-casanoor-red transition-colors">
-            Contact
+            {translations.contact}
           </Link>
         </div>
         
@@ -75,13 +80,13 @@ const Header = () => {
           <DropdownMenu>
             <DropdownMenuTrigger className="flex items-center space-x-1 bg-white border border-gray-200 rounded-md px-3 py-1.5">
               <Globe className="h-4 w-4" />
-              <span>{currentLanguage}</span>
+              <span>{language}</span>
             </DropdownMenuTrigger>
             <DropdownMenuContent align="end">
               {languages.map((lang) => (
                 <DropdownMenuItem 
                   key={lang.code}
-                  onClick={() => setCurrentLanguage(lang.code)}
+                  onClick={() => setLanguage(lang.code)}
                   className="cursor-pointer"
                 >
                   {lang.name}
@@ -93,7 +98,7 @@ const Header = () => {
           {/* Profile Button */}
           <Link to="/register" className="flex items-center space-x-1 bg-casanoor-red text-white rounded-md px-3 py-1.5 hover:bg-red-700 transition-colors">
             <User className="h-4 w-4" />
-            <span>Profile</span>
+            <span>{translations.profile}</span>
           </Link>
         </div>
       </nav>

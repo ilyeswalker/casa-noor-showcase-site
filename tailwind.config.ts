@@ -60,6 +60,7 @@ export default {
       },
       fontFamily: {
         playfair: ["Playfair Display", "serif"],
+        merriweather: ["Merriweather", "serif"],
       },
       keyframes: {
         "accordion-down": {

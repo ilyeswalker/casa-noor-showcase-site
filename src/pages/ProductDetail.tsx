@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import { useParams } from "react-router-dom";
 import ContactPanel from "../components/ContactPanel";
@@ -5,6 +6,7 @@ import ContactPanel from "../components/ContactPanel";
 const ProductDetail = () => {
   const { id } = useParams();
   const [mainImage, setMainImage] = useState("placeholder.svg");
+  const [isZoomed, setIsZoomed] = useState(false);
   
   // Mock product data - to be replaced with real data
   const product = {
@@ -16,6 +18,14 @@ const ProductDetail = () => {
     images: Array(4).fill("placeholder.svg")
   };
 
+  const handleMouseEnter = () => {
+    setIsZoomed(true);
+  };
+
+  const handleMouseLeave = () => {
+    setIsZoomed(false);
+  };
+
   return (
     <div className="pt-20 min-h-screen bg-gray-50">
       <div className="container mx-auto px-4 py-8">
@@ -23,11 +33,15 @@ const ProductDetail = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {/* Product Images */}
             <div className="space-y-4">
-              <div className="aspect-square bg-gray-100 rounded-lg overflow-hidden">
+              <div 
+                className="aspect-square bg-gray-100 rounded-lg overflow-hidden relative"
+                onMouseEnter={handleMouseEnter}
+                onMouseLeave={handleMouseLeave}
+              >
                 <img
                   src={mainImage}
                   alt={product.name}
-                  className="w-full h-full object-cover"
+                  className={`w-full h-full object-cover transition-transform duration-300 ${isZoomed ? 'scale-125' : 'scale-100'}`}
                 />
               </div>
               <div className="grid grid-cols-4 gap-2">
