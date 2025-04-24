@@ -1,4 +1,3 @@
-
 import { Link } from "react-router-dom";
 import { Cable, Plug, EthernetPort } from "lucide-react";
 import ContactPanel from "../components/ContactPanel";
@@ -72,15 +71,12 @@ const Index = () => {
       >
         <div className="text-center space-y-8 animate-fadeIn">
           <div className="mb-4">
-            <h1 className="text-5xl font-bold font-merriweather italic">
+            <h1 className="text-5xl font-black font-merriweather italic">
               <span className="text-casanoor-blue">Casa </span>
               <span className="text-casanoor-red">Noor</span>
             </h1>
-            <div className="text-white text-xl mt-1">Electric</div>
+            <div className="text-white text-xl mt-1">Fabrication et distribution<br />câble et accessoires électriques</div>
           </div>
-          <p className="text-xl md:text-2xl text-white max-w-2xl mx-auto px-4">
-            {translations.trusted_source}
-          </p>
           <div>
             <Link
               to="/catalogue"

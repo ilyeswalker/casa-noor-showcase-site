@@ -101,9 +101,9 @@ const translations: TranslationMap = {
     AR: "أدخل بريدك الإلكتروني"
   },
   trusted_source: {
-    EN: "Your trusted source for premium electrical equipment and cables",
-    FR: "Votre source de confiance pour les équipements électriques et les câbles de qualité supérieure",
-    AR: "مصدرك الموثوق للمعدات الكهربائية والكابلات المتميزة"
+    EN: "Fabrication et distribution câble et accessoires électriques",
+    FR: "Fabrication et distribution câble et accessoires électriques",
+    AR: "تصنيع وتوزيع الكابلات والملحقات الكهربائية"
   },
   regional_contacts: {
     EN: "REGIONAL CONTACTS",

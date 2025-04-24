@@ -48,15 +48,17 @@ const Header = () => {
           <Link to="/" className="flex items-center">
             <img 
               src="/lovable-uploads/663badf9-6ce8-4d62-b609-66238221977c.png" 
-              alt="CasaNoor Logo" 
+              alt="Logo" 
               className="h-16"
             />
-            <div className="ml-2">
-              <span className="text-2xl font-bold font-merriweather italic">
-                <span className="text-casanoor-blue">Casa </span>
-                <span className="text-casanoor-red">Noor</span>
+            <span className="mx-3 text-gray-800 font-medium">|</span>
+            <div className="ml-1">
+              <span className="text-black font-bold text-sm sm:text-base leading-tight block">
+                Fabrication et distribution
               </span>
-              <div className="text-black text-sm mt-[-5px]">Electric</div>
+              <span className="text-black font-bold text-sm sm:text-base leading-tight block">
+                câble et accessoires électriques
+              </span>
             </div>
           </Link>
         </div>
