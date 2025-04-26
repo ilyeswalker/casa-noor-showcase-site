@@ -1,4 +1,3 @@
-
 import { Link } from "react-router-dom";
 import { Cable, Plug, EthernetPort } from "lucide-react";
 import ContactPanel from "../components/ContactPanel";
@@ -66,7 +65,6 @@ const Index = () => {
   const { translations } = useLanguage();
   const [showBackToTop, setShowBackToTop] = useState(false);
 
-  // Handle scroll for Back to Top button
   useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY > 300) {
@@ -91,12 +89,11 @@ const Index = () => {
 
   return (
     <div className="min-h-screen">
-      {/* Hero Section */}
       <section
         className="h-screen flex items-center justify-center bg-cover bg-center bg-no-repeat transition-all duration-500 ease-in-out"
         style={{
           backgroundImage:
-            "url('https://images.unsplash.com/photo-1558346490-a72e53ae2d4f')",
+            "url('/lovable-uploads/b549f090-578b-4ab9-ab08-3d8a849c37da.png')",
           backgroundBlendMode: "overlay",
           backgroundColor: "rgba(0, 0, 0, 0.65)",
           backdropFilter: "blur(2px)",
@@ -123,7 +120,6 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Featured Products Section */}
       <section className="py-20 bg-white" id="featured-products">
         <div className="container mx-auto px-4">
           <h2 className="font-playfair text-4xl text-center mb-12">
@@ -157,7 +153,6 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Our Companies Section */}
       <section className="py-20 bg-gray-50">
         <div className="container mx-auto px-4">
           <h2 className="font-playfair text-4xl text-center mb-12">
@@ -188,10 +183,8 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Contact Panel */}
       <ContactPanel />
 
-      {/* Back to Top Button */}
       {showBackToTop && (
         <Button
           onClick={scrollToTop}
