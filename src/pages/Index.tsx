@@ -96,7 +96,7 @@ const Index = () => {
         className="h-screen flex items-center justify-center bg-cover bg-center bg-no-repeat transition-all duration-500 ease-in-out"
         style={{
           backgroundImage:
-            "url('/lovable-uploads/a527d25f-2f41-4957-a992-bfdc268237f4.png')",
+            "url('https://images.unsplash.com/photo-1558346490-a72e53ae2d4f')",
           backgroundBlendMode: "overlay",
           backgroundColor: "rgba(0, 0, 0, 0.65)",
           backdropFilter: "blur(2px)",
