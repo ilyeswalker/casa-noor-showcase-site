@@ -1,7 +1,10 @@
+
 import { Link } from "react-router-dom";
 import { Cable, Plug, EthernetPort } from "lucide-react";
 import ContactPanel from "../components/ContactPanel";
 import { useLanguage } from "../context/LanguageContext";
+import { Button } from "@/components/ui/button";
+import { useEffect, useState } from "react";
 
 const featuredProducts = [
   {
@@ -61,17 +64,41 @@ const ourCompanies = [
 
 const Index = () => {
   const { translations } = useLanguage();
+  const [showBackToTop, setShowBackToTop] = useState(false);
+
+  // Handle scroll for Back to Top button
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 300) {
+        setShowBackToTop(true);
+      } else {
+        setShowBackToTop(false);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  };
 
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
       <section
-        className="h-screen flex items-center justify-center bg-cover bg-center bg-no-repeat"
+        className="h-screen flex items-center justify-center bg-cover bg-center bg-no-repeat transition-all duration-500 ease-in-out"
         style={{
           backgroundImage:
-            "url('https://images.pexels.com/photos/159027/blue-and-yellow-bokeh-lights-159027.jpeg')",
+            "url('/lovable-uploads/a527d25f-2f41-4957-a992-bfdc268237f4.png')",
           backgroundBlendMode: "overlay",
-          backgroundColor: "rgba(0, 0, 0, 0.7)",
+          backgroundColor: "rgba(0, 0, 0, 0.65)",
           backdropFilter: "blur(2px)",
         }}
       >
@@ -88,7 +115,7 @@ const Index = () => {
           <div>
             <Link
               to="/catalogue"
-              className="inline-block bg-casanoor-red text-white px-8 py-3 rounded-md hover:bg-red-700 transition-colors"
+              className="inline-block bg-casanoor-red text-white px-8 py-3 rounded-md hover:bg-red-700 transition-colors transform hover:scale-105 duration-300"
             >
               {translations.explore_products}
             </Link>
@@ -97,7 +124,7 @@ const Index = () => {
       </section>
 
       {/* Featured Products Section */}
-      <section className="py-20 bg-white">
+      <section className="py-20 bg-white" id="featured-products">
         <div className="container mx-auto px-4">
           <h2 className="font-playfair text-4xl text-center mb-12">
             {translations.featured_products}
@@ -108,13 +135,14 @@ const Index = () => {
               return (
                 <div
                   key={product.id}
-                  className="group cursor-pointer bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition-shadow"
+                  className="group cursor-pointer bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition-all duration-300 transform hover:translate-y-[-5px]"
                 >
                   <div className="mb-4 overflow-hidden rounded-lg">
                     <img
                       src={product.image}
                       alt={product.name}
-                      className="w-full h-48 object-cover"
+                      className="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-105"
+                      loading="lazy"
                     />
                   </div>
                   <h3 className="font-playfair text-xl mb-2">{product.name}</h3>
@@ -138,12 +166,13 @@ const Index = () => {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {ourCompanies.map((company) => (
               <Link key={company.id} to={company.link} className="block">
-                <div className="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
+                <div className="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 transform hover:translate-y-[-5px]">
                   <div className="h-48 bg-gray-100">
                     <img
                       src={company.logo}
                       alt={company.name}
-                      className="w-full h-full object-cover"
+                      className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
+                      loading="lazy"
                     />
                   </div>
                   <div className="p-6">
@@ -161,6 +190,19 @@ const Index = () => {
 
       {/* Contact Panel */}
       <ContactPanel />
+
+      {/* Back to Top Button */}
+      {showBackToTop && (
+        <Button
+          onClick={scrollToTop}
+          className="fixed bottom-8 right-8 bg-casanoor-red hover:bg-red-700 text-white p-3 rounded-full shadow-lg transition-all duration-300 hover:scale-110 z-50"
+          aria-label="Back to top"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 15l7-7 7 7" />
+          </svg>
+        </Button>
+      )}
     </div>
   );
 };

@@ -6,6 +6,7 @@ import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { LanguageProvider } from "./context/LanguageContext";
 import Header from "./components/Header";
+import Footer from "./components/Footer";
 import Index from "./pages/Index";
 import Catalogue from "./pages/Catalogue";
 import ProductDetail from "./pages/ProductDetail";
@@ -28,21 +29,26 @@ const App = () => (
         <Toaster />
         <Sonner />
         <BrowserRouter>
-          <Header />
-          <Routes>
-            <Route path="/" element={<Index />} />
-            <Route path="/catalogue" element={<Catalogue />} />
-            <Route path="/product/:id" element={<ProductDetail />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/contact" element={<Contact />} />
-            <Route path="/register" element={<Register />} />
-            <Route path="/admin" element={<AdminLogin />} />
-            <Route path="/admin/dashboard" element={<AdminPage />} />
-            <Route path="/admin/add-product" element={<AddProduct />} />
-            <Route path="/company/cablette-casa" element={<CabletteCasa />} />
-            <Route path="/company/casa-noor-atelier" element={<CasaNoorAtelier />} />
-            <Route path="*" element={<NotFound />} />
-          </Routes>
+          <div className="flex flex-col min-h-screen">
+            <Header />
+            <main className="flex-grow">
+              <Routes>
+                <Route path="/" element={<Index />} />
+                <Route path="/catalogue" element={<Catalogue />} />
+                <Route path="/product/:id" element={<ProductDetail />} />
+                <Route path="/about" element={<About />} />
+                <Route path="/contact" element={<Contact />} />
+                <Route path="/register" element={<Register />} />
+                <Route path="/admin" element={<AdminLogin />} />
+                <Route path="/admin/dashboard" element={<AdminPage />} />
+                <Route path="/admin/add-product" element={<AddProduct />} />
+                <Route path="/company/cablette-casa" element={<CabletteCasa />} />
+                <Route path="/company/casa-noor-atelier" element={<CasaNoorAtelier />} />
+                <Route path="*" element={<NotFound />} />
+              </Routes>
+            </main>
+            <Footer />
+          </div>
         </BrowserRouter>
       </TooltipProvider>
     </LanguageProvider>
