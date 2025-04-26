@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState, ReactNode } from 'react';
+import React, { createContext, useContext, useState, ReactNode, useEffect } from 'react';
 
 export type LanguageCode = 'EN' | 'FR' | 'AR';
 
@@ -148,6 +148,96 @@ const translations: TranslationMap = {
     EN: "We take pride in our craftsmanship and our commitment to providing electrical solutions that power homes, businesses, and industries across the country.",
     FR: "Nous sommes fiers de notre savoir-faire et de notre engagement à fournir des solutions électriques qui alimentent les maisons, les entreprises et les industries à travers le pays.",
     AR: "نحن نفخر بحرفيتنا والتزامنا بتقديم حلول كهربائية تغذي المنازل والشركات والصناعات في جميع أنحاء البلاد"
+  },
+  about_casanoor: {
+    EN: "About CasaNoor",
+    FR: "À Propos de CasaNoor",
+    AR: "حول كازا نور"
+  },
+  our_story: {
+    EN: "Our Story",
+    FR: "Notre Histoire",
+    AR: "قصتنا"
+  },
+  our_story_desc: {
+    EN: "CasaNoor began with a vision to bring exceptional luxury furnishings to discerning homes. Our journey started with a passion for design and a commitment to quality that continues to drive everything we do.",
+    FR: "CasaNoor a commencé avec la vision d'apporter des meubles de luxe exceptionnels aux maisons les plus exigeantes. Notre voyage a commencé avec une passion pour le design et un engagement envers la qualité qui continue de guider tout ce que nous faisons.",
+    AR: "بدأت كازا نور برؤية لتقديم مفروشات فاخرة استثنائية للمنازل المميزة. بدأت رحلتنا بشغف للتصميم والتزام بالجودة يستمر في توجيه كل ما نقوم به."
+  },
+  our_mission: {
+    EN: "Our Mission",
+    FR: "Notre Mission",
+    AR: "مهمتنا"
+  },
+  our_mission_desc: {
+    EN: "We strive to transform living spaces into extraordinary environments that reflect the unique style and sophistication of our clients.",
+    FR: "Nous nous efforçons de transformer les espaces de vie en environnements extraordinaires qui reflètent le style unique et la sophistication de nos clients.",
+    AR: "نسعى جاهدين لتحويل مساحات المعيشة إلى بيئات استثنائية تعكس الأسلوب الفريد والرقي لعملائنا."
+  },
+  our_vision: {
+    EN: "Our Vision",
+    FR: "Notre Vision",
+    AR: "رؤيتنا"
+  },
+  our_vision_desc: {
+    EN: "To be recognized globally as the leading purveyor of fine furnishings, setting new standards in luxury home decor.",
+    FR: "Être reconnu mondialement comme le principal fournisseur de meubles raffinés, établissant de nouvelles normes dans la décoration de maison de luxe.",
+    AR: "أن نكون معروفين عالمياً كأفضل مزود للمفروشات الراقية، ونضع معايير جديدة في ديكور المنازل الفاخرة."
+  },
+  contact_us: {
+    EN: "Contact Us",
+    FR: "Contactez-Nous",
+    AR: "اتصل بنا"
+  },
+  name: {
+    EN: "Name",
+    FR: "Nom",
+    AR: "الاسم"
+  },
+  message: {
+    EN: "Message",
+    FR: "Message",
+    AR: "الرسالة"
+  },
+  send_message: {
+    EN: "Send Message",
+    FR: "Envoyer le Message",
+    AR: "إرسال الرسالة"
+  },
+  contact_information: {
+    EN: "Contact Information",
+    FR: "Informations de Contact",
+    AR: "معلومات الاتصال"
+  },
+  business_hours: {
+    EN: "Business Hours",
+    FR: "Heures d'Ouverture",
+    AR: "ساعات العمل"
+  },
+  monday_friday: {
+    EN: "Monday - Friday",
+    FR: "Lundi - Vendredi",
+    AR: "الإثنين - الجمعة"
+  },
+  saturday: {
+    EN: "Saturday",
+    FR: "Samedi",
+    AR: "السبت"
+  },
+  sunday: {
+    EN: "Sunday",
+    FR: "Dimanche",
+    AR: "الأحد"
+  },
+  closed: {
+    EN: "Closed",
+    FR: "Fermé",
+    AR: "مغلق"
+  },
+  phone: {
+    EN: "Phone",
+    FR: "Téléphone",
+    AR: "الهاتف"
   }
 };
 
@@ -161,7 +251,15 @@ interface LanguageContextType {
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
 
 export const LanguageProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
-  const [language, setLanguage] = useState<LanguageCode>('EN');
+  const [language, setLanguage] = useState<LanguageCode>(() => {
+    const savedLanguage = localStorage.getItem('preferredLanguage');
+    return (savedLanguage as LanguageCode) || 'EN';
+  });
+
+  useEffect(() => {
+    localStorage.setItem('preferredLanguage', language);
+    document.documentElement.dir = language === 'AR' ? 'rtl' : 'ltr';
+  }, [language]);
 
   const getTranslation = (key: string): string => {
     return translations[key]?.[language] || key;
@@ -179,7 +277,9 @@ export const LanguageProvider: React.FC<{ children: ReactNode }> = ({ children }
       translations: translatedTexts,
       getTranslation
     }}>
-      {children}
+      <div className="transition-all duration-300 ease-in-out">
+        {children}
+      </div>
     </LanguageContext.Provider>
   );
 };
