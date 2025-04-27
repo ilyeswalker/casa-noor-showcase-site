@@ -61,6 +61,7 @@ export default {
       fontFamily: {
         playfair: ["Playfair Display", "serif"],
         merriweather: ["Merriweather", "serif"],
+        regularBrush: ['"Regular Brush"', 'cursive'],
       },
       keyframes: {
         "accordion-down": {

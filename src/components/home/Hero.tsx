@@ -35,12 +35,14 @@ const Hero = () => {
       <div className="text-center space-y-8 z-10 animate-fadeIn">
         <div className="mb-4 transform transition-all duration-500 hover:scale-105">
           <h1 className="mb-2">
-            <span className="block font-['Great_Vibes'] text-6xl text-casanoor-blue mb-2">
+          <span className="inline font-regularBrush text-6xl text-casanoor-blue mb-2">
               Casa 
-            </span>
-            <span className="block font-['Great_Vibes'] text-6xl text-casanoor-red mb-2">
+          </span>
+          <span className="inline font-regularBrush text-6xl text-casanoor-red mb-2">
               Noor
-            </span>
+          </span>
+
+
             <span className="block font-['Poppins'] text-3xl font-black tracking-wide text-casanoor-black">
               ELECTRIC
             </span>
