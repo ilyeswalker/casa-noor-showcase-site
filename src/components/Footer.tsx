@@ -1,7 +1,6 @@
-
 import { Link } from "react-router-dom";
 import { useLanguage } from "../context/LanguageContext";
-import { Facebook, Instagram, Linkedin, Twitter } from "lucide-react";
+import { Facebook, Instagram, Linkedin, Twitter, Phone, Mail } from "lucide-react";
 
 const Footer = () => {
   const { translations, language } = useLanguage();
@@ -11,7 +10,6 @@ const Footer = () => {
     <footer className="bg-gray-900 text-white">
       <div className="container mx-auto px-4 py-12">
         <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-8">
-          {/* Company Info */}
           <div>
             <h3 className="text-xl font-semibold mb-4">Casa Noor</h3>
             <p className="text-gray-300 mb-4">
@@ -33,7 +31,6 @@ const Footer = () => {
             </div>
           </div>
           
-          {/* Quick Links */}
           <div>
             <h3 className="text-xl font-semibold mb-4">{translations.quick_links || 'Quick Links'}</h3>
             <ul className="space-y-2">
@@ -60,7 +57,6 @@ const Footer = () => {
             </ul>
           </div>
           
-          {/* Our Companies */}
           <div>
             <h3 className="text-xl font-semibold mb-4">{translations.our_companies || 'Our Companies'}</h3>
             <ul className="space-y-2">
@@ -82,7 +78,6 @@ const Footer = () => {
             </ul>
           </div>
           
-          {/* Contact Info */}
           <div>
             <h3 className="text-xl font-semibold mb-4">{translations.contact_us || 'Contact Us'}</h3>
             <address className="not-italic text-gray-300">
@@ -94,7 +89,54 @@ const Footer = () => {
           </div>
         </div>
         
-        <div className="border-t border-gray-800 mt-12 pt-6 flex flex-col md:flex-row justify-between items-center">
+        <div className="border-t border-gray-800 mt-8 pt-8">
+          <h3 className="text-xl font-semibold mb-6 text-center">{translations.regional_contacts || 'Regional Contacts'}</h3>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="text-center space-y-3">
+              <h4 className="font-semibold">{translations.west_region || 'West Region'}</h4>
+              <div className="space-y-2">
+                <div className="flex items-center justify-center space-x-2">
+                  <Phone className="h-4 w-4" />
+                  <p>(+213) 555-123-456</p>
+                </div>
+                <div className="flex items-center justify-center space-x-2">
+                  <Mail className="h-4 w-4" />
+                  <p>west@casanoor.com</p>
+                </div>
+              </div>
+            </div>
+
+            <div className="text-center space-y-3">
+              <h4 className="font-semibold">{translations.center_region || 'Center Region'}</h4>
+              <div className="space-y-2">
+                <div className="flex items-center justify-center space-x-2">
+                  <Phone className="h-4 w-4" />
+                  <p>(+213) 555-789-012</p>
+                </div>
+                <div className="flex items-center justify-center space-x-2">
+                  <Mail className="h-4 w-4" />
+                  <p>center@casanoor.com</p>
+                </div>
+              </div>
+            </div>
+
+            <div className="text-center space-y-3">
+              <h4 className="font-semibold">{translations.east_region || 'East Region'}</h4>
+              <div className="space-y-2">
+                <div className="flex items-center justify-center space-x-2">
+                  <Phone className="h-4 w-4" />
+                  <p>(+213) 555-345-678</p>
+                </div>
+                <div className="flex items-center justify-center space-x-2">
+                  <Mail className="h-4 w-4" />
+                  <p>east@casanoor.com</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div className="border-t border-gray-800 mt-8 pt-6 flex flex-col md:flex-row justify-between items-center">
           <p className="text-gray-400 text-sm mb-4 md:mb-0">
             &copy; {currentYear} Casa Noor. {translations.all_rights_reserved || 'All rights reserved.'}
           </p>

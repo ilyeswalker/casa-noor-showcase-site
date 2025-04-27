@@ -1,4 +1,3 @@
-
 import { Phone, Mail, Facebook, Instagram, Linkedin } from "lucide-react";
 import { Input } from "./ui/input";
 import { useLanguage } from "../context/LanguageContext";
@@ -73,57 +72,6 @@ const ContactPanel = () => {
               <button className="bg-white text-gray-800 px-4 py-2 rounded hover:bg-gray-100 transition-colors">
                 {translations.subscribe}
               </button>
-            </div>
-          </div>
-        </div>
-        
-        {/* Regional Contacts - Moved to bottom */}
-        <div className="pt-8">
-          <h3 className="font-playfair text-xl font-semibold text-center mb-6">{translations.regional_contacts}</h3>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {/* West Region */}
-            <div className="space-y-4 text-center">
-              <h4 className="font-playfair font-semibold">{translations.west_region}</h4>
-              <div className="space-y-2">
-                <div className="flex items-center justify-center space-x-2">
-                  <Phone className="h-5 w-5" />
-                  <p>(+213) 555-123-456</p>
-                </div>
-                <div className="flex items-center justify-center space-x-2">
-                  <Mail className="h-5 w-5" />
-                  <p>west@casanoor.com</p>
-                </div>
-              </div>
-            </div>
-            
-            {/* Center Region */}
-            <div className="space-y-4 text-center">
-              <h4 className="font-playfair font-semibold">{translations.center_region}</h4>
-              <div className="space-y-2">
-                <div className="flex items-center justify-center space-x-2">
-                  <Phone className="h-5 w-5" />
-                  <p>(+213) 555-789-012</p>
-                </div>
-                <div className="flex items-center justify-center space-x-2">
-                  <Mail className="h-5 w-5" />
-                  <p>center@casanoor.com</p>
-                </div>
-              </div>
-            </div>
-            
-            {/* East Region */}
-            <div className="space-y-4 text-center">
-              <h4 className="font-playfair font-semibold">{translations.east_region}</h4>
-              <div className="space-y-2">
-                <div className="flex items-center justify-center space-x-2">
-                  <Phone className="h-5 w-5" />
-                  <p>(+213) 555-345-678</p>
-                </div>
-                <div className="flex items-center justify-center space-x-2">
-                  <Mail className="h-5 w-5" />
-                  <p>east@casanoor.com</p>
-                </div>
-              </div>
             </div>
           </div>
         </div>
