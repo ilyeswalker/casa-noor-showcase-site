@@ -38,7 +38,7 @@ const Hero = () => {
             <span className="block font-['Great_Vibes'] text-6xl text-casanoor-blue mb-2">
               Casa Noor
             </span>
-            <span className="block font-['Poppins'] text-3xl font-black tracking-wide text-casanoor-red">
+            <span className="block font-['Poppins'] text-3xl font-black tracking-wide text-casanoor-black">
               ELECTRIC
             </span>
           </h1>
