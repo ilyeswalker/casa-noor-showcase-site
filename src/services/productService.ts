@@ -48,9 +48,13 @@ export const createProduct = async (
       return { success: false, error: productError.message };
     }
 
+    console.log('Product created successfully:', product);
+
     // 2. Upload images if there are any
     if (imageFiles.length > 0) {
       const productId = product.id;
+      
+      console.log('Uploading images for product:', productId);
       
       // Upload each image and save metadata
       const uploadPromises = imageFiles.map(async (file, index) => {
@@ -58,6 +62,7 @@ export const createProduct = async (
         
         // Check if there was an error
         if (typeof result !== 'string') {
+          console.error('Error uploading image:', result);
           return { success: false, error: result.message };
         }
         
@@ -65,12 +70,16 @@ export const createProduct = async (
         const fileName = result.split('/').pop() || '';
         const fullPath = result.split('product-images/')[1] || '';
         
-        await saveProductImageMetadata(
+        const saved = await saveProductImageMetadata(
           productId,
           result,
           fullPath,
           index
         );
+        
+        if (!saved) {
+          console.error('Error saving image metadata');
+        }
         
         return { success: true };
       });
